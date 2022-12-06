@@ -2,8 +2,8 @@ project "GLFW"
 	kind "StaticLib"
 	language "C"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir 	(project_targetdir .. "/%{prj.name}")
+	objdir  	(project_objdir .. "/%{prj.name}")
 
 	files {
 		"include/GLFW/glfw3.h",
@@ -16,10 +16,8 @@ project "GLFW"
 		"src/vulkan.c",
 		"src/window.c"
 	}
-	filter "system:linux"
-		pic "On"
 
-		systemversion "latest"
+	filter "system:linux"
 		staticruntime "On"
 
 		files {
@@ -40,7 +38,6 @@ project "GLFW"
 		}
 
 	filter "system:windows"
-		systemversion "latest"
 		staticruntime "On"
 
 		files {
@@ -59,11 +56,3 @@ project "GLFW"
 			"_GLFW_WIN32",
 			"_CRT_SECURE_NO_WARNINGS"
 		}
-
-	filter "configurations:Debug"
-		runtime "Debug"
-		symbols "on"
-
-	filter "configurations:Release"
-		runtime "Release"
-		optimize "on"
