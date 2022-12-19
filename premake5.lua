@@ -2,8 +2,8 @@ project "GLFW"
 	kind "StaticLib"
 	language "C"
 
-	targetdir 	(project_targetdir .. "/%{prj.name}")
-	objdir  	(project_objdir .. "/%{prj.name}")
+	targetdir 	(Solution.Path.ProjectTargetDirectory)
+    objdir 		(Solution.Path.ProjectObjectDirectory)
 
 	files {
 		"include/GLFW/glfw3.h",
