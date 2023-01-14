@@ -1,6 +1,7 @@
 project "GLFW"
 	kind "StaticLib"
 	language "C"
+	staticruntime "on"
 
 	targetdir 	(Solution.Path.ProjectTargetDirectory)
     objdir 		(Solution.Path.ProjectObjectDirectory)
@@ -18,8 +19,6 @@ project "GLFW"
 	}
 
 	filter "system:linux"
-		staticruntime "On"
-
 		files {
 			"src/x11_init.c",
 			"src/x11_monitor.c",
@@ -38,8 +37,6 @@ project "GLFW"
 		}
 
 	filter "system:windows"
-		staticruntime "On"
-
 		files {
 			"src/win32_init.c",
 			"src/win32_joystick.c",
