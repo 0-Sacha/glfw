@@ -1,5 +1,8 @@
+
+Solution.Projects["GLFW"].Type = "StaticLib"
+
 project "GLFW"
-	kind "StaticLib"
+	kind 		(Solution.Projects["GLFW"].Type)
 	language "C"
 
 	targetdir 	(Solution.Path.ProjectTargetDirectory)
